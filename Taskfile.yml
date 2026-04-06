@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: '3'
+
+vars:
+  GREETING: Hello, world!
+
+tasks:
+  conan-generate:
+    desc: Generate project Requirements
+    cmd: conan install . --output-folder=generated --build=missing
+
+  conan-profile:
+    desc: Generate project profile
+    cmd: conan profile detect --force
+
+  build:
+    desc: Build Project files
+    cmds:
+      - task: conan-profile
+      - task: conan-generate
