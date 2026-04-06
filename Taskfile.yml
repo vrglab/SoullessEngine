@@ -4,20 +4,20 @@ version: '3'
 tasks:
   conan-generate:
     desc: Generate project Requirements
-    cmd: conan install . --output-folder=generated --build=missing
+    cmd: conan install . --build=missing
 
   conan-profile:
     desc: Generate project profile
     cmd: conan profile detect --force
 
-  cmake-build:
+  cmake:
     desc: Build Project files
     cmds:
-      - cmake .. {{.CLI_ARGS}} -DCMAKE_TOOLCHAIN_FILE="conan_toolchain.cmake"
+      - cmake . {{.CLI_ARGS}} -DCMAKE_TOOLCHAIN_FILE="build/generators/conan_toolchain.cmake"
 
-  build:
-    desc: Build Project files
+  make:
+    desc: make Project files
     cmds:
       - task: conan-profile
       - task: conan-generate
-      - task: cmake-build
+      - task: cmake
