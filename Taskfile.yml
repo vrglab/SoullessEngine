@@ -10,8 +10,14 @@ tasks:
     desc: Generate project profile
     cmd: conan profile detect --force
 
+  cmake-build:
+    desc: Build Project files
+    cmds:
+      - cmake .. {{.CLI_ARGS}} -DCMAKE_TOOLCHAIN_FILE="conan_toolchain.cmake"
+
   build:
     desc: Build Project files
     cmds:
       - task: conan-profile
       - task: conan-generate
+      - task: cmake-build
