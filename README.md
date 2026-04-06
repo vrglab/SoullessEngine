@@ -1,6 +1,6 @@
 ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![CMake](https://img.shields.io/badge/CMake-%23008FBA.svg?style=for-the-badge&logo=cmake&logoColor=white) ![nVIDIA](https://img.shields.io/badge/nVIDIA-%2376B900.svg?style=for-the-badge&logo=nVIDIA&logoColor=white) [![License](https://img.shields.io/github/license/vrglab/ShovelEngine?style=for-the-badge)](LICENSE.txt) [![Releases](https://img.shields.io/github/v/release/vrglab/SoulessEngine?style=for-the-badge)](https://github.com/vrglab/SoulessEngine/releases)
 
-# SoulessEngine
+# SoullessEngine
 Yet another C++ based Game Engine, fully free and open source.
 
 ## Supported Platforms
