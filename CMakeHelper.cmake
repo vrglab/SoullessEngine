@@ -1,4 +1,4 @@
-SET(STANDARD_LIBS ZLIB::ZLIB spdlog::spdlog)
+SET(STANDARD_LIBS ZLIB::ZLIB spdlog::spdlog OpenAL::OpenAL sdl::sdl vulkan-headers::vulkan-headers boost::boost)
 
 # Function to collect .cpp files in the src directory
 function(collect_cpp_files DIR OUT_VAR)
@@ -27,7 +27,13 @@ function(include_vendors TARGET_NAME)
             "${CMAKE_SOURCE_DIR}/vendors/physx/physx/include"
             "${CMAKE_SOURCE_DIR}/vendors/ShaderConductor/Include"
             "${CMAKE_SOURCE_DIR}/vendors/stb"
+            "${CMAKE_SOURCE_DIR}/vendors/assimp/include"
     )
+endfunction()
+
+function(add_cmake_vendors)
+    add_subdirectory("${CMAKE_SOURCE_DIR}/vendors/assimp")
+    add_subdirectory("${CMAKE_SOURCE_DIR}/vendors/ShaderConductor")
 endfunction()
 
 function(target_apply_common_settings TARGET_NAME)

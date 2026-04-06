@@ -83,3 +83,4 @@ $RECYCLE.BIN/
 *.vcxproj.filters
 *.sln
 
+cmake-build-debug/
