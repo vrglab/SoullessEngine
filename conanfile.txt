@@ -1,5 +1,6 @@
 [requires]
 spdlog/1.17.0
+fmt/12.1.0
 zlib/1.3.1
 openal-soft/1.23.1
 sdl/3.4.0
