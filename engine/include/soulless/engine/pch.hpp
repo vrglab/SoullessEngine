@@ -20,5 +20,5 @@
 #include <fmt/format.h>
 #include <spdlog/spdlog.h>
 
-// INTERNAL COMMONS FMT_HAS_INCLUDE
+// INTERNAL COMMONS
 #include <soulless/engine/commons/commons.h>
