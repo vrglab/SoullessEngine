@@ -15,10 +15,7 @@
 #include <unordered_set>
 #include <utility>
 #include <vector>
-
-// Third-party headers you use all over the engine
-#include <fmt/format.h>
-#include <spdlog/spdlog.h>
+#include <mutex>
 
 // INTERNAL COMMONS
 #include <soulless/engine/commons/commons.h>
