@@ -20,11 +20,11 @@ Yet another Soulless C++ based Game Engine, fully free and open source.
 First to clone and build the project you need to run the following command
 
 ```shell
-    git pull --recurse-submodules git@github.com:vrglab/SoullessEngine.git
+git clone --recurse-submodules git@github.com:vrglab/SoullessEngine.git
 ```
 To clone the project and it's Submodules. After the project has been Cloned you can run
 ```shell
-    task make
+task make
 ```
 To pull all remaining Depandencies and generate IDE/Make files 
 
