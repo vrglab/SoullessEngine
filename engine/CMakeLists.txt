@@ -6,7 +6,7 @@ collect_cpp_files("${CMAKE_CURRENT_SOURCE_DIR}/src" SRC_FILES)
 collect_h_files("${CMAKE_CURRENT_SOURCE_DIR}/include" INCLUDE_FILES)
 
 # Add the static library target
-add_library(${PROJ_NAME} STATIC ${SRC_FILES} ${INCLUDE_FILES})
+add_library(${PROJ_NAME} SHARED ${SRC_FILES} ${INCLUDE_FILES})
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 include_directories("${CMAKE_INCLUDE_PATH}")
