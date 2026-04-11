@@ -19,3 +19,6 @@
 // Third-party headers you use all over the engine
 #include <fmt/format.h>
 #include <spdlog/spdlog.h>
+
+// INTERNAL COMMONS FMT_HAS_INCLUDE
+#include <soulless/engine/commons/commons.h>
