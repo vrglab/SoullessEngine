@@ -17,4 +17,5 @@
 #include <vector>
 
 // Third-party headers you use all over the engine
+#include <fmt/format.h>
 #include <spdlog/spdlog.h>

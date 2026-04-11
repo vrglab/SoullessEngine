@@ -84,3 +84,7 @@ $RECYCLE.BIN/
 *.sln
 
 cmake-build-debug/
+engine.dir/
+editor.dir/
+
+x64/

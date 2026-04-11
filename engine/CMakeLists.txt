@@ -18,7 +18,7 @@ include_vendors(${PROJ_NAME})
 
 target_precompile_headers(${PROJ_NAME}
         PRIVATE
-        "${CMAKE_CURRENT_SOURCE_DIR}/include/soulless/pch.hpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/include/soulless/${PROJ_NAME}/pch.hpp"
 )
 
 # Link with Conan dependencies
