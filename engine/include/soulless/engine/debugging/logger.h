@@ -25,7 +25,7 @@ namespace SoullessEngine::debugging
     };
 }
 
-#define SOULLESS_TRACE(...)  Logger::CoreLogger()->trace(__VA_ARGS__);
-#define SOULLESS_INFO(...)   Logger::CoreLogger()->info(__VA_ARGS__);
-#define SOULLESS_WARN(...)   Logger::CoreLogger()->warn(__VA_ARGS__);
-#define SOULLESS_ERROR(...)  Logger::CoreLogger()->error(__VA_ARGS__);
+#define SOULLESS_TRACE(...)  SoullessEngine::debugging::Logger::CoreLogger()->trace(__VA_ARGS__);
+#define SOULLESS_INFO(...)   SoullessEngine::debugging::Logger::CoreLogger()->info(__VA_ARGS__);
+#define SOULLESS_WARN(...)   SoullessEngine::debugging::Logger::CoreLogger()->warn(__VA_ARGS__);
+#define SOULLESS_ERROR(...)  SoullessEngine::debugging::Logger::CoreLogger()->error(__VA_ARGS__);
