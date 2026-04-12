@@ -1,6 +1,5 @@
 ﻿#include <soulless/editor/pch.hpp>
-#include "soulless/engine/commons/macros.h"
-#include "soulless/engine/debugging/logger.h"
+#include "soulless/engine/commons/commons.h"
 
 using namespace SoullessEngine::debugging;
 
@@ -8,5 +7,5 @@ int main() {
     Logger::Init();
     SOULLESS_INFO("Funny")
     Logger::Cleanup();
-    return 0;
+    return SoullessEngine::Success;
 }
