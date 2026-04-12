@@ -4,6 +4,7 @@
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 #include <spdlog/sinks/basic_file_sink.h>
+#include <iostream>
 
 using namespace SoullessEngine::memory;
 using namespace SoullessEngine::memory::allocation;
@@ -15,6 +16,7 @@ namespace SoullessEngine::debugging
     public:
         static int Init();
         static int Flush();
+         static int Cleanup();
         static Ref<spdlog::logger>& CoreLogger();
         
     private:

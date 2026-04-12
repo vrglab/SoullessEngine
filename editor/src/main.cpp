@@ -6,6 +6,7 @@ using namespace SoullessEngine::debugging;
 
 int main() {
     Logger::Init();
-    SOULLESS_INFO("HAHHA")
+    SOULLESS_INFO("Funny")
+    Logger::Cleanup();
     return 0;
 }
