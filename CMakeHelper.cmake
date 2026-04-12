@@ -45,3 +45,57 @@ function(target_apply_common_settings TARGET_NAME)
         target_compile_options(${TARGET_NAME} PRIVATE -Wall -Wextra -Wpedantic)
     endif()
 endfunction()
+
+function(set_target_output_dirs target)
+    if(CMAKE_CONFIGURATION_TYPES)
+        foreach(OUTPUTCONFIG ${CMAKE_CONFIGURATION_TYPES})
+            string(TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG_UPPER)
+
+            get_target_property(TARGET_TYPE ${target} TYPE)
+
+            if(TARGET_TYPE STREQUAL "EXECUTABLE")
+                set_target_properties(${target} PROPERTIES
+                        RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER}
+                        "${CMAKE_BINARY_DIR}/build/bin/${OUTPUTCONFIG}/${target}"
+                )
+            else()
+                set_target_properties(${target} PROPERTIES
+                        RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER}
+                        "${CMAKE_BINARY_DIR}/build/lib/${OUTPUTCONFIG}/${target}"
+                        LIBRARY_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER}
+                        "${CMAKE_BINARY_DIR}/build/lib/${OUTPUTCONFIG}/${target}"
+                        ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER}
+                        "${CMAKE_BINARY_DIR}/build/lib/${OUTPUTCONFIG}/${target}"
+                )
+            endif()
+        endforeach()
+    else()
+        get_target_property(TARGET_TYPE ${target} TYPE)
+
+        if(TARGET_TYPE STREQUAL "EXECUTABLE")
+            set_target_properties(${target} PROPERTIES
+                    RUNTIME_OUTPUT_DIRECTORY
+                    "${CMAKE_BINARY_DIR}/build/bin/${target}"
+            )
+        else()
+            set_target_properties(${target} PROPERTIES
+                    RUNTIME_OUTPUT_DIRECTORY
+                    "${CMAKE_BINARY_DIR}/build/lib/${target}"
+                    LIBRARY_OUTPUT_DIRECTORY
+                    "${CMAKE_BINARY_DIR}/build/lib/${target}"
+                    ARCHIVE_OUTPUT_DIRECTORY
+                    "${CMAKE_BINARY_DIR}/build/lib/${target}"
+            )
+        endif()
+    endif()
+endfunction()
+
+
+function(copy_runtime_deps target)
+    add_custom_command(TARGET ${target} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            $<TARGET_RUNTIME_DLLS:${target}>
+            $<TARGET_FILE_DIR:${target}>
+            COMMAND_EXPAND_LISTS
+    )
+endfunction()
