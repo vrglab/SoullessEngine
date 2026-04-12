@@ -8,20 +8,20 @@ int SoullessEngine::debugging::Logger::Init()
     
     m_CoreLogger->set_level(spdlog::level::trace);
     m_CoreLogger->set_pattern("%^[%T] %n: %v%$");
-    return 0;
+    return Success;
 }
 
 int SoullessEngine::debugging::Logger::Flush()
 {
     spdlog::flush_on(spdlog::level::trace);
-    return 0;
+    return Success;
 }
 
 int SoullessEngine::debugging::Logger::Cleanup()
 {
     m_CoreLogger.reset();
     MemoryTracker::Get().OnDeallocate("Logger", sizeof(m_CoreLogger));
-    return 0;
+    return Success;
 }
 
 Ref<spdlog::logger>& SoullessEngine::debugging::Logger::CoreLogger()
