@@ -13,3 +13,6 @@
 [submodule "vendors/assimp"]
 	path = vendors/assimp
 	url = git@github.com:assimp/assimp.git
+[submodule "vendors/mono"]
+	path = vendors/mono
+	url = git@gitlab.winehq.org:mono/mono.git
