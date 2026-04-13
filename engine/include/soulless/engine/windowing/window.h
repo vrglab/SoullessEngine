@@ -3,9 +3,9 @@
 #include <soulless/engine/commons/commons.h>
 #include <SDL3/SDL.h>
 
-namespace SoullessEditor::windowing
+namespace SoullessEngine::windowing
 {
-    class Window
+    class SOULLESS_API Window
     {
     public:
         struct WindowInfo

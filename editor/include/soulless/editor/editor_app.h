@@ -1,10 +1,10 @@
 ﻿#pragma once
 
 #include <soulless/engine/commons/commons.h>
-#include <soulless/editor/windowing/window.h>
+#include <soulless/engine/windowing/window.h>
 #include <soulless/engine/memory/allocation/heap_allocator.h>
 
-using namespace SoullessEditor::windowing;
+using namespace SoullessEngine::windowing;
 
 namespace SoullessEditor
 {
