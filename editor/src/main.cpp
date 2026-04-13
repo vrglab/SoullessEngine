@@ -1,11 +1,10 @@
 ﻿#include <soulless/editor/pch.hpp>
-#include "soulless/engine/commons/commons.h"
 
-using namespace SoullessEngine::debugging;
+#include <soulless/editor/editor_app.h>
 
 int main() {
-    Logger::Init();
-    SOULLESS_INFO("Editing Funny")
-    Logger::Cleanup();
-    return SoullessEngine::Success;
+    SoullessEditor::EditorApp::Init();
+    int result = SoullessEditor::EditorApp::Start();
+    SoullessEditor::EditorApp::Cleanup();
+    return result;
 }
