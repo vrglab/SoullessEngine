@@ -22,6 +22,9 @@ namespace SoullessEngine::windowing
         void ProcessEvents();
         void Cleanup();
         bool ShouldClose();
+        SDL_Window* GetSDlWindowPtr();
+        Ref<WindowInfo> GetActiveInfo();
+        
         
     private:
         int _openAndStartWindow();

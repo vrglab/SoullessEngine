@@ -1,14 +1,17 @@
 # yaml-language-server: $schema=https://taskfile.dev/schema.json
 version: '3'
 
+vars: 
+  PROFILE_NAME: SoullessEngine
+
 tasks:
   conan-generate:
     desc: Generate project Requirements
-    cmd: conan install . --build=missing
+    cmd: conan install . --build=missing --profile={{.PROFILE_NAME}}
 
   conan-profile:
     desc: Generate project profile
-    cmd: conan profile detect --force
+    cmd: conan profile detect --name {{.PROFILE_NAME}}
 
   cmake:
     desc: Build Project files
@@ -18,6 +21,11 @@ tasks:
   make:
     desc: make Project files
     cmds:
-      - task: conan-profile
       - task: conan-generate
       - task: cmake
+        
+  init:
+    desc: One Time command to run the first time the porject is installed
+    cmds:
+      - task: conan-profile
+      - task: make

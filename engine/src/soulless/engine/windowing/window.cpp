@@ -63,3 +63,13 @@ bool SoullessEngine::windowing::Window::ShouldClose()
 {
     return m_ShouldClose;
 }
+
+SDL_Window* SoullessEngine::windowing::Window::GetSDlWindowPtr()
+{
+    return m_WindowRef;
+}
+
+Ref<SoullessEngine::windowing::Window::WindowInfo> SoullessEngine::windowing::Window::GetActiveInfo()
+{
+    return m_Info;
+}
