@@ -7,6 +7,7 @@ sdl/3.4.0
 vulkan-headers/1.4.313.0
 ffmpeg/4.4.6
 boost/1.90.0
+bgfx/1.129.8930-495
 
 [generators]
 CMakeDeps

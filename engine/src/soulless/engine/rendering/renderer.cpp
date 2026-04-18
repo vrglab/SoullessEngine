@@ -2,17 +2,17 @@
 
 #include <soulless/engine/rendering/renderer.h>
 
-int SoullessEngine::rendering::Renderer::InitRenderer(windowing::Window window)
+int SoullessEngine::rendering::Renderer::InitRenderer(const AllocScope<windowing::Window>& window)
 {
     PlatformData data = _extractPlatformData(window);
     return initBgfx(data, window);
 }
 
-PlatformData SoullessEngine::rendering::Renderer::_extractPlatformData(windowing::Window window)
+PlatformData SoullessEngine::rendering::Renderer::_extractPlatformData(const AllocScope<windowing::Window>& window)
 {
-    m_CurrentWindowInfo = window.GetActiveInfo();
+    m_CurrentWindowInfo = window->GetActiveInfo();
     PlatformData pd;
-    SDL_PropertiesID props = SDL_GetWindowProperties(window.GetSDlWindowPtr());
+    SDL_PropertiesID props = SDL_GetWindowProperties(window->GetSDlWindowPtr());
 
 #ifdef SDL_PLATFORM_WIN32
     pd.nwh = (HWND) SDL_GetPointerProperty(props, SDL_PROP_WINDOW_WIN32_HWND_POINTER, NULL );
@@ -40,7 +40,7 @@ PlatformData SoullessEngine::rendering::Renderer::_extractPlatformData(windowing
     return pd;
 }
 
-int SoullessEngine::rendering::Renderer::initBgfx(PlatformData platformData, windowing::Window window)
+int SoullessEngine::rendering::Renderer::initBgfx(PlatformData platformData, const AllocScope<windowing::Window>& window)
 {
     Init init;
     init.type = RendererType::Count;
@@ -56,6 +56,12 @@ int SoullessEngine::rendering::Renderer::initBgfx(PlatformData platformData, win
     //bgfx::reset( 1280, 720, BGFX_RESET_VSYNC );
     setDebug(BGFX_DEBUG_TEXT);
     setViewClear( 0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303030FF, 1.0f, 0 );
+    
+    RendererType::Enum type = getRendererType();
+    const char* rendererName = getRendererName(type);
+    
+    SOULLESS_INFO(rendererName)
+    
     return Success;
 }
 

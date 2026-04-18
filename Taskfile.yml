@@ -7,7 +7,11 @@ vars:
 tasks:
   conan-generate:
     desc: Generate project Requirements
-    cmd: conan install . --build=missing --profile={{.PROFILE_NAME}}
+    cmd: conan install . --build=missing --profile={{.PROFILE_NAME}} --settings=compiler.cppstd=17
+    
+  conan-generate-rel:
+    desc: Generate project Requirements for Release
+    cmd: conan install . --build=missing --settings=compiler.cppstd=17
 
   conan-profile:
     desc: Generate project profile
@@ -22,6 +26,12 @@ tasks:
     desc: make Project files
     cmds:
       - task: conan-generate
+      - task: cmake
+      
+  make-rel:
+    desc: make Project files for Release
+    cmds:
+      - task: conan-generate-rel
       - task: cmake
         
   init:

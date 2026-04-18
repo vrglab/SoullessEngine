@@ -29,12 +29,12 @@ namespace SoullessEngine::rendering
     class SOULLESS_API Renderer
     {
     public:
-        int InitRenderer(windowing::Window window);
+        int InitRenderer(const AllocScope<windowing::Window>& window);
         void RenderHead();
         void Cleanup();
     private:
-        PlatformData _extractPlatformData(windowing::Window window);
-        int initBgfx(PlatformData platformData, windowing::Window window);
+        PlatformData _extractPlatformData(const AllocScope<windowing::Window>& window);
+        int initBgfx(PlatformData platformData, const AllocScope<windowing::Window>& window);
         
     private:
         Ref<windowing::Window::WindowInfo> m_CurrentWindowInfo;

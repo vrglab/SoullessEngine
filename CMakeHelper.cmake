@@ -1,4 +1,4 @@
-SET(STANDARD_LIBS ZLIB::ZLIB fmt::fmt spdlog::spdlog OpenAL::OpenAL sdl::sdl vulkan-headers::vulkan-headers boost::boost)
+SET(STANDARD_LIBS ZLIB::ZLIB fmt::fmt spdlog::spdlog OpenAL::OpenAL sdl::sdl vulkan-headers::vulkan-headers boost::boost bgfx::bgfx)
 
 # Function to collect .cpp files in the src directory
 function(collect_cpp_files DIR OUT_VAR)
