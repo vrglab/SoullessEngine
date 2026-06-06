@@ -19,6 +19,7 @@ find_package(VulkanHeaders REQUIRED)
 find_package(boost REQUIRED)
 find_package(bgfx REQUIRED)
 find_package(ffmpeg REQUIRED)
+find_package(assimp REQUIRED)
 
 
 add_subdirectory(engine)

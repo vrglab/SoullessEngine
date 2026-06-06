@@ -4,9 +4,3 @@
 [submodule "vendors/ShaderConductor"]
 	path = vendors/ShaderConductor
 	url = git@github.com:microsoft/ShaderConductor.git
-[submodule "vendors/stb"]
-	path = vendors/stb
-	url = git@github.com:nothings/stb.git
-[submodule "vendors/assimp"]
-	path = vendors/assimp
-	url = git@github.com:assimp/assimp.git
