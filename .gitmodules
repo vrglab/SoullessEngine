@@ -1,9 +1,6 @@
 [submodule "vendors/physx"]
 	path = vendors/physx
 	url = git@github.com:NVIDIA-Omniverse/PhysX.git
-[submodule "vendors/bgfx"]
-	path = vendors/bgfx
-	url = git@github.com:bkaradzic/bgfx.git
 [submodule "vendors/ShaderConductor"]
 	path = vendors/ShaderConductor
 	url = git@github.com:microsoft/ShaderConductor.git

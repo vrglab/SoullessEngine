@@ -3,6 +3,8 @@
 #include <soulless/engine/commons/commons.h>
 #include <SDL3/SDL.h>
 
+using SoullessEngine::events::Event;
+
 namespace SoullessEngine::windowing
 {
     class SOULLESS_API Window
@@ -22,6 +24,15 @@ namespace SoullessEngine::windowing
         void ProcessEvents();
         void Cleanup();
         bool ShouldClose();
+        SDL_Window* GetSDlWindowPtr();
+        Ref<WindowInfo> GetActiveInfo();
+        
+        SOULLESS_EVENT(m_OnResize, int, int)
+        SOULLESS_EVENT(m_OnFrameBufferResized, int, int)
+        SOULLESS_EVENT(m_OnFocusLost)
+        SOULLESS_EVENT(m_OnFocusGained)
+        SOULLESS_EVENT(m_OnMinimize)
+        SOULLESS_EVENT(m_OnRestored)
         
     private:
         int _openAndStartWindow();

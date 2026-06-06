@@ -47,6 +47,40 @@ void SoullessEngine::windowing::Window::ProcessEvents()
             m_ShouldClose = true;
             break;
             
+        case SDL_EVENT_WINDOW_FOCUS_GAINED:
+            m_OnFocusGained.Broadcast();
+            break;
+
+        case SDL_EVENT_WINDOW_FOCUS_LOST:
+            m_OnFocusLost.Broadcast();
+            break;
+
+        case SDL_EVENT_WINDOW_MINIMIZED:
+            m_OnMinimize.Broadcast();
+            break;
+
+        case SDL_EVENT_WINDOW_RESTORED:
+            m_OnRestored.Broadcast();
+            break;
+            
+        case SDL_EVENT_WINDOW_RESIZED:
+            {
+                int width  = event.window.data1;
+                int height = event.window.data2;
+
+                m_OnResize.Broadcast(width, height);
+                break;
+            }
+            
+        case SDL_EVENT_WINDOW_PIXEL_SIZE_CHANGED:
+            {
+                int pixelWidth = event.window.data1;
+                int pixelHeight = event.window.data2;
+
+                m_OnFrameBufferResized.Broadcast(pixelWidth, pixelHeight);
+                break;
+            }
+            
         default:
             break;
         }
@@ -62,4 +96,14 @@ void SoullessEngine::windowing::Window::Cleanup()
 bool SoullessEngine::windowing::Window::ShouldClose()
 {
     return m_ShouldClose;
+}
+
+SDL_Window* SoullessEngine::windowing::Window::GetSDlWindowPtr()
+{
+    return m_WindowRef;
+}
+
+Ref<SoullessEngine::windowing::Window::WindowInfo> SoullessEngine::windowing::Window::GetActiveInfo()
+{
+    return m_Info;
 }
