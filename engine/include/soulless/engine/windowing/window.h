@@ -15,7 +15,6 @@ namespace SoullessEngine::windowing
             const char *title;
             int width;
             int height;
-            bool guessScreenSize;
             SDL_WindowFlags flags;
         };
         
