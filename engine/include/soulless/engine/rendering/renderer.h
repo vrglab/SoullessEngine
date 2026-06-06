@@ -35,6 +35,7 @@ namespace SoullessEngine::rendering
     private:
         PlatformData _extractPlatformData(const AllocScope<windowing::Window>& window);
         int initBgfx(PlatformData platformData, const AllocScope<windowing::Window>& window);
+        void OnWindowResizeEvent(int width, int height, bool setWindowInfo = true);
         
     private:
         Ref<windowing::Window::WindowInfo> m_CurrentWindowInfo;

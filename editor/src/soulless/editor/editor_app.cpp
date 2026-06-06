@@ -18,10 +18,10 @@ void SoullessEditor::EditorApp::Init()
     m_Renderer = CreateAllocScope<Renderer>(m_CoreAllocator);
     
     Ref<Window::WindowInfo> windowInfo = CreateRef<Window::WindowInfo>();
-    windowInfo->title = "Test";
+    windowInfo->title = "SoullessEditor";
     windowInfo->width = 600;
     windowInfo->height = 600;
-    windowInfo->flags = SDL_WINDOW_RESIZABLE;
+    windowInfo->flags = SDL_WINDOW_MAXIMIZED | SDL_WINDOW_RESIZABLE;
     
     m_InitResultCode = m_ActiveWindow->Init(windowInfo);
     m_InitResultCode = m_Renderer->InitRenderer(m_ActiveWindow);

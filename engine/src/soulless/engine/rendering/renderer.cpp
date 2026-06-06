@@ -49,13 +49,23 @@ int SoullessEngine::rendering::Renderer::initBgfx(PlatformData platformData, con
     init.platformData.ndt = platformData.ndt;
     init.resolution.width = m_CurrentWindowInfo->width;
     init.resolution.height = m_CurrentWindowInfo->height;
-    //init.resolution.reset = BGFX_RESET_VSYNC;
+    init.resolution.reset = BGFX_RESET_VSYNC;
     if( !bgfx::init( init ) )
         return Fail;
 
-    //bgfx::reset( 1280, 720, BGFX_RESET_VSYNC );
+    reset(m_CurrentWindowInfo->width, m_CurrentWindowInfo->height, BGFX_RESET_VSYNC );
     setDebug(BGFX_DEBUG_TEXT);
     setViewClear( 0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303030FF, 1.0f, 0 );
+    
+    window->m_OnResize.AddListener([this](int width, int height)
+    {
+        OnWindowResizeEvent(width, height);
+    });
+    
+    window->m_OnFrameBufferResized.AddListener([this](int width, int height)
+    {
+        OnWindowResizeEvent(width, height, false);
+    });
     
     RendererType::Enum type = getRendererType();
     const char* rendererName = getRendererName(type);
@@ -76,4 +86,19 @@ void SoullessEngine::rendering::Renderer::RenderHead()
 void SoullessEngine::rendering::Renderer::Cleanup()
 {
     bgfx::shutdown();
+}
+
+void SoullessEngine::rendering::Renderer::OnWindowResizeEvent(int width, int height, bool setWindowInfo)
+{
+    if (width == 0 || height == 0)
+        return;
+        
+    if (setWindowInfo)
+    {
+        m_CurrentWindowInfo->width = width;
+        m_CurrentWindowInfo->height = height;
+    }
+    
+    reset(width, height, BGFX_RESET_VSYNC);
+    setViewRect(0, 0, 0, uint16_t(width), uint16_t(height));
 }
