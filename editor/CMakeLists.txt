@@ -10,8 +10,10 @@ collect_h_files("${CMAKE_CURRENT_SOURCE_DIR}/include" INCLUDE_FILES)
 # Add executable
 add_executable(${PROJ_NAME} ${SRC_FILES} ${INCLUDE_FILES})
 
-
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include" "${CMAKE_INCLUDE_PATH}" "../engine/include")
+target_include_directories(${PROJ_NAME}
+        PUBLIC
+        "${CMAKE_CURRENT_SOURCE_DIR}/include"
+)
 
 link_directories(${CMAKE_LIBRARY_PATH})
 

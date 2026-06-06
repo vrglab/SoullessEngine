@@ -27,12 +27,10 @@ function(include_vendors TARGET_NAME)
             "${CMAKE_SOURCE_DIR}/vendors/physx/physx/include"
             "${CMAKE_SOURCE_DIR}/vendors/ShaderConductor/Include"
             "${CMAKE_SOURCE_DIR}/vendors/stb"
-            "${CMAKE_SOURCE_DIR}/vendors/assimp/include"
     )
 endfunction()
 
 function(add_cmake_vendors)
-    add_subdirectory("${CMAKE_SOURCE_DIR}/vendors/assimp")
     add_subdirectory("${CMAKE_SOURCE_DIR}/vendors/ShaderConductor")
 endfunction()
 

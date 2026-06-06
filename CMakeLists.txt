@@ -22,6 +22,8 @@ find_package(ffmpeg REQUIRED)
 find_package(assimp REQUIRED)
 
 
+add_subdirectory(vendors/imgui)
+
 add_subdirectory(engine)
 
 add_subdirectory(editor)
